@@ -21,9 +21,24 @@ document.getElementById("box").addEventListener("dblclick", function () {
 document.getElementById("box").addEventListener("wheel", function () {
     boxColor.style.backgroundColor = 'orange';
 })
-document.getElementById("box").addEventListener("keypress", function event() {
-    if (event.keyCode = 66 ){
-        boxColor.style.backgroundColor = 'purple';
+document.addEventListener("keypress", function (e) {
+    console.log(e.key);
+    if (e.key === 'b') {
+        boxColor.style.backgroundColor = 'blue';
+    } 
+    else if (e.key === 'r') {
+        boxColor.style.backgroundColor = 'red';
+    } 
+    else if (e.key === 'g') {
+        boxColor.style.backgroundColor = 'green';
+    } 
+    else if (e.key === 'y') {
+        boxColor.style.backgroundColor = 'yellow';
+    } 
+    else if (e.key === 'o') {
+        boxColor.style.backgroundColor = 'orange';
     }
 })
-    
+
+
+
