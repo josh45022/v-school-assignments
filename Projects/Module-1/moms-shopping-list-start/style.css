@@ -1,0 +1,41 @@
+.noicetitle {
+    text-align: center;
+}
+
+.box1 {
+    padding: 100px;
+    width: 700px;
+    height: 500px;
+    background-color: silver;
+    position: absolute;
+    right: 275px;
+    top: 70px;
+    opacity: 0.2;
+}
+
+.add-item {
+    text-align: center;
+}
+.item-name {
+    position:absolute;
+    left: 275px;
+    top: 160px;
+}
+
+.formdiv {
+    position: absolute;
+    left: 265px;
+    top: 200px;
+}
+
+#list-of-items {
+    position: absolute;
+    left: 650px;
+    top: 200px;
+}
+
+.delete {
+    position: absolute;
+    left: 800px;
+    top: 225px;
+}
