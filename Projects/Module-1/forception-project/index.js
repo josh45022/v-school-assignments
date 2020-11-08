@@ -13,7 +13,7 @@ function forception (people, alphabet) {
       var alphUpper = alphabet.toUpperCase()
       var alphSpaced = alphUpper.split('')
       /*var sticktoName = people[i].concat(alphSpaced);*/
-      console.log([people[i]\]
+      console.log([people[i]
          + ":" + alphSpaced]);
     }
     
