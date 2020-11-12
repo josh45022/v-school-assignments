@@ -1,0 +1,31 @@
+body {
+    width: 100%;
+    height: 100vh;
+  
+}
+
+.box-holder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 100%;
+    height: 1000px;
+}
+
+.box-1 {
+    display: grid;
+    grid-column: 1/2;
+    background-color: #FFA07A;
+}
+
+.box-2 {
+    display: grid;
+    grid-column: 2/3;
+    background-color: #AFEEEE;
+}
+
+.box-3 {
+    display: grid;
+    grid-column: 3/4;
+    background-color:#90ee90 ;
+}
