@@ -34,14 +34,14 @@ buttonVar.addEventListener("click", function(event) {
     
     var goombasTot = parseInt(form.goombas.value) * 5
 
-    var bombombsTot = parseInt(form.bobombs.value) * 7  
+    var bombombsTot = parseInt(form.bombombs.value) * 7  
 
-    var cheepcheepsTot = parseInt(form.cheepcheep.value) * 11
+    var cheepcheepsTot = parseInt(form.cheepcheeps.value) * 11
 
     form.totalprice.value = goombasTot + bombombsTot + cheepcheepsTot
     form.goombas.value = "";
-    form.bobombs.value = "";
-    form.cheepcheep.value = "";
+    form.bombombs.value = "";
+    form.cheepcheeps.value = "";
 
 
     
