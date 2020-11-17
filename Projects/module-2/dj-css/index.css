@@ -1,0 +1,68 @@
+
+.box{
+    background-color: yellowgreen;
+    height: 300px;
+    width: 300px;
+    margin: 5px;
+    float: left; 
+    padding: 5px;
+    border: 1px solid white;  
+}
+
+.box-1 {
+    
+    transition-property: box-shadow;
+    transition-duration: 1s;
+}
+.box-1:hover {
+    box-shadow: 10px 10px;
+}
+.box-2 {
+    transition: box-shadow 1s, background-color 1s;
+    
+}
+.box-2:hover {
+    box-shadow:10px 10px;
+    background-color: turquoise;
+
+}
+.box-3 {
+    transition: width 1s;
+
+}
+
+.box-3:hover {
+    width: 600px;
+
+}
+.box-4 {
+    transition: border-width 1s, border-style 3s;
+
+
+}
+.box-4:hover {
+    border-width: 20px;
+    border-style: dashed;
+
+}
+.box-5 {
+    transition: background-color 1s;
+}
+
+.box-5:hover {
+    background-color: red;
+
+
+}
+
+
+.box-6 {
+    transition: border-width 1s, border-color 1s;
+
+}
+
+.box-6:hover {
+    border-width: 10px;
+    border-color: gold;
+
+}

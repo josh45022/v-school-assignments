@@ -85,9 +85,8 @@ var h2 = document.createElement('h2')
 
 
 var readyToPutInTheDOM = peopleArray.map(function (people) {
-         h1.innerHTML = people.name
-         h2.innerHTMl = people.age
-    return people
+         
+    return '<h1>' + people.name + '</h1><h2>' + people.age + '</h2'
     
 })
-console.log(h1)
+console.log(readyToPutInTheDOM)

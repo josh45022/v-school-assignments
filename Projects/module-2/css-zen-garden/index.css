@@ -1,0 +1,72 @@
+
+
+.box-holder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    height: 100vh;
+    background-color: white;
+}
+
+.box-1 {
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+.box-2 {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 1/2;
+} 
+
+.box-3 {
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+.box-4 {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+.box-5 {
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 3/4;
+
+}
+
+.box-6 {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.box-7 {
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+.box-8 {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 4/5;
+}
+
+.box-9 {
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 5/6;
+}
+
+.box-10 {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 5/6;
+}
+
+@media screen and width
