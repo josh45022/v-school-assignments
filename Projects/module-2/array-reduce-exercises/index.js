@@ -68,7 +68,6 @@ var arrays = [
 ]
 
 var flatten = arrays.reduce(function(final,array){   
-    //var wow = final.toString(array)
     return final.concat(array)
 
 })

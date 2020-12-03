@@ -1,0 +1,53 @@
+ {
+     "appetizers": [
+        {
+            "name": "breadsticks",
+            "ingredients": ["flour", "water", "breadstick-goodness"], 
+            "description": "A beautiful blend of breadstick-goodness"
+         },
+            
+         {
+            "name": "nachos",
+            "ingredients": ["flour", "water", "nacho-goodness"], 
+            "description": "A beautiful blend of nacho-goodness"
+         }
+    ],
+
+     "cold sandwiches": [
+         {
+             "name": "turkey on rye",
+             "ingredients": ["bread", "turkey", "turkey-on-rye-goodness"],
+             "description": "A beautiful blend of turkey-on-rye goodness"
+         },
+         {
+            "name": "classic tuna",
+            "ingredients":["bread", "tuna", "tuna goodness"],
+            "description": "A beautiful blend of tuna goodness"
+         } 
+    ],  
+     "hot sandwiches": [
+         {
+            "name": "meatball sub", 
+            "ingredients":["bread", "meatballs", "meatball-sub-goodness"],
+            "description": "A beautiful blend of meatball sub goodness"
+         },
+         {
+            "name": "turkey on rye melt",
+            "ingredients":["bread", "meatballs", "turkey-on-rye-melt-goodness"],
+            "description": "A beautiful blend of turkey on rye melt goodness"
+         }
+     ],
+     "desserts": [
+         {
+            "name":"water",
+            "ingredients":["liquid-hell, veganism"],
+            "description": "A beautiful blend of veganism"
+
+         },
+         {
+            "name":"pepsi",
+            "ingredients":["heaven, tooth-rot"],
+            "description": "A beautiful blend of tooth-rot"
+         }
+    ]
+ }

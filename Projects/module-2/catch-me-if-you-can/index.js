@@ -35,6 +35,6 @@ function login (newUsername, newPassword) {
 
 sum('1','2')//is not supposed to work since the numbers are strings
 
-login("bob", "bob")//is not supposed to work since the passowords don't match
+login("bob", "bob")//is not supposed to work since the usernames and passwords don't match
 
 login("sam", "123abc")//is supposed to work since the passwords match

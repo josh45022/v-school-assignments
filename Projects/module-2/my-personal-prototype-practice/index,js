@@ -1,0 +1,17 @@
+var cat = {
+    sound: "meow"
+}
+
+cat.speak();
+
+var animal = {
+    sound: "generic soundssss"
+    numLegs: 4,
+    speak: function() {
+        console.log(this.sound);
+    }
+}
+
+Object.setPrototypeOf(cat, animal); 
+cat.speak();  
+cat.numLegsZX
