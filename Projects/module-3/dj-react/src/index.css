@@ -1,0 +1,24 @@
+.wrapper {
+    width: 700px;
+    height: 500px;
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "box" "box"
+    "box" "box"
+    ;
+    gap: 5px;
+}
+
+
+.box {
+    border: 5px solid black;
+
+}
+.button2 {
+    display: block;
+    margin-top: 10px;
+}
+
