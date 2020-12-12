@@ -1,0 +1,111 @@
+.badgewrapper {
+    background-color: #FF5349;
+    display: grid;
+    margin: 20px;
+    margin-left: 300px;;
+    margin-right: 300px;
+    transition: box-shadow 1s;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    "box1" "box2"
+    "box3" "box4"
+    "box5" 
+    "box6";
+  }
+
+.badgewrapper:hover {
+  box-shadow:10px 10px;
+}
+
+  .box1 {
+    grid-area: "box1";
+  }
+  .box2 {
+    grid-area: "box2";
+  }
+  .box3 {
+    grid-area: "box3";
+  }
+  .box4 {
+    grid-area: "box4";
+  }
+  .box5 {
+    grid-area: "box5";
+  }
+  .box6 {
+    grid-area: "box6";
+  }
+
+  h4 {
+      color: white;
+      text-align: left;
+      margin-left: 20px;
+  }
+
+  .input {
+      display: inline-block;
+      text-align: center;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+
+  }
+
+  button {
+      border-radius: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+
+  .formwrapper {
+      text-align: center;
+      padding: 20px;
+      background-color: limegreen;
+      color: white;
+      /* margin-left: 400px;
+      margin-right: 400px; */
+      display: block;
+      
+
+  }
+
+
+/* @media only screen and (min-width: 300px) {
+  .formwrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .formwrapper {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+} */
+
+@media only screen and (min-width: 500px) {
+  .formwrapper {
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+  .badgewrapper {
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .formwrapper {
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .formwrapper {
+    margin-left: 400px;
+    margin-right: 400px;
+  }
+}
