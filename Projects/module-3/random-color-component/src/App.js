@@ -8,22 +8,28 @@ class App extends React.Component{
   constructor() {
     super()
     this.state = {
-      color: "",
+      colors: "",
       isLoading: false
     }
   }
   componentDidMount(){
-    this.setState({isLoading: true})
+    this.setState({
+
+      isLoading: true}
+      )
     axios.get(`http://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
-      .then(response => (this.setState({
-        color: response.data
-      })))
+      .then(response => this.setState(
+        {colors: response.data.new_color,
+        isLoading: false}))
       .catch(error => (console.log(error)))
+    console.log(this.state.colors)
   }
   render(){
-
     return(
-      <Color color={this.state.color}/>
+      <div>
+        <h1 style={{textAlign: "center"}}>{this.state.isLoading?"Loading Random Color...":null}</h1>
+        <Color color={this.state.colors}/>
+      </div>
     )
   }
 }
