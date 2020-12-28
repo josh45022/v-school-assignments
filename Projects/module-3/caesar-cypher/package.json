@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "array-move": "^3.0.1",
+    "readline-sync": "^1.4.10"
+  }
+}

@@ -69,7 +69,7 @@ class App extends React.Component {
         if(this.state.firstName.length < 3 || this.state.lastName.length < 3 || this.state.email.length < 3 || this.state.placeOfBirth.length < 3 || this.state.phone.length < 3 || this.state.favoriteFood.length < 3 || this.state.aboutYou.length < 3 ) {
            return document.getElementsByClassName('input').required = true
           } 
-        if(isNaN/*is Not a Number??*/(this.state.phone) === true){
+        if(isNaN/*is Not a Number*/(this.state.phone) === true){
           return document.getElementsByClassName('phone').required = true
         }
       else{
