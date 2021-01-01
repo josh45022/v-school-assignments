@@ -45,13 +45,13 @@ function App() {
 
                       <UglyThingContextConsumer>
                         
-                          {({listOfItems, handleDelete}) => { 
+                          {({listOfItems, handleDelete, handleChange, isEditing, getList, handleEdit, takeToEdit}) => { 
 
                             console.log(listOfItems)
 
                             const mappedUglyThings = listOfItems.map(
                               function(item){
-                                return(<UglyThing item={item} handleDelete={handleDelete}/>)
+                                return(<UglyThing item={item} handleDelete={handleDelete} handleChange={handleChange} isEditing={isEditing} getList={getList} handleEdit={handleEdit} takeToEdit={takeToEdit} key={item._id}/>)
                                   }
                                 )
 

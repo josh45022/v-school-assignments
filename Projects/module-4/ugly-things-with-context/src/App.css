@@ -49,20 +49,19 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 330px;
-  /* height: 350px; */
   margin-bottom: 15px;
+  background-color: white;
 }
-.uglythingTitle {
-  font-size: 24px;
-  background-color: transparent;
-  border: 0;
-  font-weight: bold;
+
+.isNotEditable {
+  display: none;
 }
 
 .delete {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 15px;
 }
 
 button {
@@ -71,9 +70,13 @@ button {
   font-family: 'optima';
   height: 25px;
   width: 100px;
+  background-color: white;
   
 }
 
+
+
 body {
   font-family: 'optima';
+  background-color: #FBC349;
 }
