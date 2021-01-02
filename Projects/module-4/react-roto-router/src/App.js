@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import React from "react"
 import './App.css';
 import {Link, Switch, Route} from "react-router-dom"
-import Home from "./components/Home.js"
-import About from "./components/About.js"
-import Services from "./components/Services.js"
+import Home from "./pages/Home.js"
+import About from "./pages/About.js"
+import Services from "./pages/Services.js"
 
 function App() {
   return (
