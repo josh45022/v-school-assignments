@@ -1,0 +1,36 @@
+.welcome {
+    display: grid;
+    /* align-items: center;
+    justify-content: center; */
+    height: 100vh;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+
+}
+
+.welcometitle {
+    color: #3b1568;
+    grid-column: 1/19;
+    grid-row: 9/10;
+
+
+
+}
+
+button {
+    background: none;
+    background-color: #3b1568;
+    color: white;
+    font-family: 'optima';
+    font-size: 17px;
+    height: 40px;
+    grid-column: 8/12;
+    grid-row: 10/11;
+      
+
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
