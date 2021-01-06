@@ -24,7 +24,7 @@ function Cats() {
             let currentCat = list
              console.log( list[0].image)} */}
              {console.log(list)}
-             <div style={{backgroundColor: "red", color: "white"}}>Type a number in the text field below to change "cat" to a picture of a cat!</div>
+             <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
             <h1>Ev'rybody Wants to Be a Cat</h1>
             <h2>By Floyd Huddleston and Al Rinker</h2>
                 <h4>Well, little lady, let me elucidate here</h4>
@@ -79,6 +79,9 @@ function Cats() {
         if(noPic) {
             return (
                 <div>
+                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
+                <h1>Ev'rybody Wants to Be a Cat</h1>
+                <h2>By Floyd Huddleston and Al Rinker</h2>
                 <h4>Well, little lady, let me elucidate here</h4>
                 <h4>Everybody wants to be a cat</h4>
                 <h4>Because a cat's the only cat</h4>
@@ -121,6 +124,7 @@ function Cats() {
 
                 <h4>Everybody, everybody, everybody wants to be a cat</h4>
                 <h4>Everybody, everybody</h4>
+                <CatsForm handleClick={handleClick}/>
                 </div>
             )
         }

@@ -5,7 +5,7 @@ const {Provider, Consumer} = React.createContext()
 class CatsContextProvider extends React.Component{
     state = {
         // list: [],
-        list: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDuck_test&psig=AOvVaw0YA-18RorDG5k5GJv_7Dhl&ust=1609960399858000&source=images&cd=vfe&ved=2ahUKEwi9lpT_v4XuAhVkPH0KHXD-B6gQr4kDegUIARDXAQ",
+        list: [],
         current: 0,
         isLoading: true,
         noPic: true,

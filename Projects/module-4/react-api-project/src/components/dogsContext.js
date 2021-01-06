@@ -4,11 +4,13 @@ const {Provider, Consumer} = React.createContext()
 class DogsContextProvider extends React.Component{
     state = {
         list: [],
-        current: 15
+        current: 15,
+        isLoading: true,
+        noPic: true
     }
     componentDidMount() {
             axios.get("https://dog.ceo/api/breed/germanshepherd/images")
-            .then(response => this.setState({list: response.data.message}))
+            .then(response => this.setState({list: response.data.message, isLoading: false}))
             .catch(error => console.log(error))  
   
 
@@ -16,11 +18,17 @@ class DogsContextProvider extends React.Component{
  
 
     handleClick = (number) => {
-        this.setState({current: number})
+        this.setState({current: number, noPic: false})
     }
         render() {
         return(
-            <Provider value = {{list: this.state.list, current: this.state.current, handleClick: this.handleClick}}>
+            <Provider value = {{
+                list: this.state.list, 
+                current: this.state.current, 
+                handleClick: this.handleClick,
+                isLoading: this.state.isLoading,
+                noPic: this.state.noPic
+            }}>
                 {this.props.children}
             </Provider>
 

@@ -8,13 +8,10 @@ function DogsForm(props){
             setChosenNumber(value)
         )
     }
-    console.log(chosenNumber)
-    console.log(document.getElementById('yuuuh'))
     return(
         <div>
         <form>
             <input
-            id="yuuuh"
             type="number"
             name="chosenNumber"
             value={chosenNumber}
