@@ -8,6 +8,7 @@ import {CatsContextProvider} from "./components/catsContext.js"
 import {BrowserRouter as Router} from "react-router-dom"
 
 ReactDOM.render(
+  
   <DogsContextProvider>
 
     <CatsContextProvider>

@@ -4,21 +4,23 @@ const {Provider, Consumer} = React.createContext()
 class DogsContextProvider extends React.Component{
     state = {
         list: [],
-        current: 3,
+        current: 15
     }
     componentDidMount() {
-        axios.get("https://dog.ceo/api/breed/germanshepherd/images")
+            axios.get("https://dog.ceo/api/breed/germanshepherd/images")
             .then(response => this.setState({list: response.data.message}))
-            .catch(error => console.log(error))    
+            .catch(error => console.log(error))  
+  
 
     }
-    handleSubmit = (number) => {
+ 
+
+    handleClick = (number) => {
         this.setState({current: number})
-        console.log(this.state.current)
     }
         render() {
         return(
-            <Provider value = {{list: this.state.list, current: this.state.current, handleSubmit: this.handleSubmit}}>
+            <Provider value = {{list: this.state.list, current: this.state.current, handleClick: this.handleClick}}>
                 {this.props.children}
             </Provider>
 

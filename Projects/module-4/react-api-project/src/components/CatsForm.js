@@ -1,6 +1,5 @@
 import React,{useState} from "react"
-import {DogsContextConsumer} from "./dogsContext.js"
-function DogsForm(props){
+function CatsForm(props){
     const [chosenNumber, setChosenNumber]= useState(0)
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -9,12 +8,10 @@ function DogsForm(props){
         )
     }
     console.log(chosenNumber)
-    console.log(document.getElementById('yuuuh'))
     return(
         <div>
         <form>
             <input
-            id="yuuuh"
             type="number"
             name="chosenNumber"
             value={chosenNumber}
@@ -30,4 +27,4 @@ function DogsForm(props){
 
     )
 }
-export default DogsForm
+export default CatsForm

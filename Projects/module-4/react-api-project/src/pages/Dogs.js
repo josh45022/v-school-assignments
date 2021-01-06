@@ -8,9 +8,9 @@ function Dogs() {
     return(
         <DogsContextConsumer>
         
-        {({list, current, handleSubmit}) => {
+        {({list, current, handleClick}) => {
         const currentDog = list[current]
-        console.log(typeof currentDog)
+        // const currentDog = list[current].image.url
         
         
         
@@ -20,7 +20,7 @@ function Dogs() {
                 <button className="homebutton"><Link to="/dogs/"> Click Me For Dogs</Link></button>
                 <button className="homebutton"><Link to="/cats/"> Click Me For Cats</Link></button>
 
-                <h1>Walkin A Dog</h1>
+                <h1>Walking The Dog</h1>
                 <h2>By Rufus Thomas</h2>
                     
                     <h4>Baby's back, dressed in black,</h4>
@@ -56,7 +56,7 @@ function Dogs() {
                     <h4>I'll show you how to walk the {<img alt="" src={`${currentDog}`}/>}, oh</h4>
                     <h4>Just a, just a, just a, just a, just a, just a walkin'</h4>
                     <h4>Just a, just a, just a, just a, just a, just a walkin', oh</h4>   
-                    <DogsForm handleSubmit={handleSubmit}/>
+                    <DogsForm handleClick={handleClick}/>
             </div>
             )}
         }
