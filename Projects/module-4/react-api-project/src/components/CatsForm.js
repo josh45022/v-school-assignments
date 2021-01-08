@@ -1,28 +1,23 @@
 import React,{useState} from "react"
 function CatsForm(props){
     const [chosenNumber, setChosenNumber]= useState(0)
-    const handleChange = (event) => {
-        const {name, value} = event.target
-        return (
-            setChosenNumber(value)
-        )
-    }
-    console.log(chosenNumber)
+    // const handleChange = (event) => {
+    //     const {value} = event.target
+    //     setChosenNumber(value) 
+    // }
     return(
         <div>
-        <form>
+        <form onSubmit={(e)=>props.handleClick(e,chosenNumber)}>
             <input
             type="number"
             name="chosenNumber"
             value={chosenNumber}
-            onChange={handleChange}
+            onChange={(e) => setChosenNumber(e.target.value)}
             />
-
-
+            <button >Submit Number</button>
         </form>
-            <button onClick={()=>props.handleClick(chosenNumber)}>
-                Submit Number
-            </button>
+
+            
         </div>
 
     )

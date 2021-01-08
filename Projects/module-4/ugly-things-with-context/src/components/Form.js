@@ -15,6 +15,8 @@ class Form extends React.Component {
         this.setState({[name]: value})
     }
 
+    
+
     createUglyThing = (event) => {
         event.preventDefault()
         axios.post("https://api.vschool.io/joshuabenbaba/thing", this.state)
@@ -30,11 +32,6 @@ class Form extends React.Component {
 
 
 
-
-    // handleDelete = () => {
-    //     const notDeletedItems = 
-
-    // }
 
 
 

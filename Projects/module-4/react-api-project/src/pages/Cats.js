@@ -12,19 +12,14 @@ function Cats() {
         <CatsContextConsumer>
         
         {({list, current, handleClick, isLoading, noPic}) => {
-        // const currentCat = list[current]
-        // const currentCat = list[current].image.url
 
 
         if(isLoading === false && noPic === false) {
         return (
   
         <div className="petholder">
-          {/* {setTimeout(()=> (console.log(`YAYYYYYYYYY`)),5000)
-            let currentCat = list
-             console.log( list[0].image)} */}
              {console.log(list)}
-             <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
+             <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number between 0 and 67 in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
             <h1>Ev'rybody Wants to Be a Cat</h1>
             <h2>By Floyd Huddleston and Al Rinker</h2>
                 <h4>Well, little lady, let me elucidate here</h4>
@@ -79,7 +74,7 @@ function Cats() {
         if(noPic) {
             return (
                 <div>
-                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
+                <div style={{color: "red", marginLeft: "auto", marginRight: "auto"}}>Reload page for original lyrics. Type a number between 0 and 67 in the text field below to change "cat" to a picture of a cat! Remember each cat picture is represented by a different number.</div>
                 <h1>Ev'rybody Wants to Be a Cat</h1>
                 <h2>By Floyd Huddleston and Al Rinker</h2>
                 <h4>Well, little lady, let me elucidate here</h4>

@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 const axios = require('axios')
 const {Provider, Consumer} = React.createContext()
+
 class DogsContextProvider extends React.Component{
     state = {
         list: [],
@@ -23,11 +24,8 @@ class DogsContextProvider extends React.Component{
         render() {
         return(
             <Provider value = {{
-                list: this.state.list, 
-                current: this.state.current, 
+                ...this.state, 
                 handleClick: this.handleClick,
-                isLoading: this.state.isLoading,
-                noPic: this.state.noPic
             }}>
                 {this.props.children}
             </Provider>

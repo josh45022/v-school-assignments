@@ -16,13 +16,12 @@ function Dogs() {
         const currentDog = list[current]
         console.log(currentDog)
         console.log(noPic)
-        // const currentDog = list[current].image.url
 
         
         if(isLoading === false && noPic === false) {
         return(
             <div className="petholder">
-                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "dog" to a picture of a German Shepherd dog! Remember each dog picture is represented by a different number.</div>
+                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number between 0 and 110 in the text field below to change "dog" to a picture of a German Shepherd dog! Remember each dog picture is represented by a different number.</div>
                 <h1>Walking The Dog</h1>
                 <h2>By Rufus Thomas</h2>
                     <h4>Baby's back, dressed in black,</h4>
@@ -69,7 +68,7 @@ function Dogs() {
         if(noPic) {
             return (
             <div>
-                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number in the text field below to change "dog" to a picture of a German Shepherd dog! Remember each dog picture is represented by a different number.</div>
+                <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number between 0 and 110 in the text field below to change "dog" to a picture of a German Shepherd dog! Remember each dog picture is represented by a different number.</div>
                 <h1>Walking The Dog</h1>
                 <h2>By Rufus Thomas</h2>
                     

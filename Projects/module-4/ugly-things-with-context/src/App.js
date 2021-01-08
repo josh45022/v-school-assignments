@@ -6,36 +6,6 @@ import {UglyThingContextConsumer} from './uglyThingContext.js';
 const axios = require("axios")
 
 function App() {
-  // state = {
-  //   newImgUrl: "",
-  //   newDescription:"",
-  //   newTitle: "",
-  //   data: [],
-  //   list: [],
-  //   practice: "real women vote for trump" 
-  // }
-
-  //componentDidMount() {
-  //   <UglyThingContextConsumer>
-      
-  //     {contextObj => {
-  //       contextObj.getList()
-  //         .then(response => (this.setState({list: response.data})))
-  //         .catch(error => (error))
-        
-
-  //       return(console.log(this.state.list + "AAAHKJSDHDOAUDOS"))
-  //     }}
-       
-  //   </UglyThingContextConsumer>
-
-   
-  //}
-
-
-
-  // render(){
-  
 
     return (
       
@@ -72,7 +42,7 @@ function App() {
                 </div>
         
     );
-   // }
+
   
 }
 

@@ -20,20 +20,17 @@ class UglyThing extends React.Component {
                         <div className= {`${this.props.isEditing?"is":"isNot"}Editable`}>
                             <form>
                             <input 
-                                // className="uglythingTitle" 
                                 name="title" 
                                 type="text" 
                                 value={this.state.title}
                                 onChange={this.handleChange}
                                 />
                             <input 
-                                //className="uglythingDescr" 
                                 name="description" 
                                 value={this.state.description}
                                 onChange={this.handleChange}
                                 />
                             <input 
-                                //className="uglythingimgUrl" 
                                 name="imgUrl" 
                                 value={this.state.imgUrl}
                                 onChange={this.handleChange}

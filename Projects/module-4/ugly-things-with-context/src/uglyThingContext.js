@@ -8,6 +8,26 @@ class UglyThingContextProvider extends React.Component {
         isEditing: false
 
     }
+
+    createUglyThing = (event) => {
+        event.preventDefault()
+        axios.post("https://api.vschool.io/joshuabenbaba/thing", this.state)
+            .then(response => {
+
+                this.setState(prevState => {
+                    return {
+                        listOfItems: [...prevState.listOfItems,response.data]
+                    }
+                })
+            })
+            .catch(error => (error))
+        this.setState({
+            title: "",
+            description: "",
+            imgUrl:""
+        })
+    }
+
     getList = () => {
         axios.get("https://api.vschool.io/joshuabenbaba/thing")
             .then(response => (this.setState({listOfItems: response.data})))
@@ -25,13 +45,17 @@ class UglyThingContextProvider extends React.Component {
     }
 
     handleDelete = (id) => {
-        // const filteredList = this.state.listOfItems.filter(
-        //     (meme) => {
-        //         return(meme.id !== id)
-        //     }
-        // ) 
+
         axios.delete(`https://api.vschool.io/joshuabenbaba/thing/${id}`)
-            .then(response => console.log(response))
+            .then(response => {
+                this.setState(
+                    prevState => {
+                        return{
+                            listOfItems: prevState.listOfItems.filter(thing => id !== thing.id)
+                        }
+                    }
+                )
+            })
             .catch(error => (error))
         this.getList()
     }
@@ -43,7 +67,7 @@ class UglyThingContextProvider extends React.Component {
     handleEdit = (id, putObject) => {
         axios.put(`https://api.vschool.io/joshuabenbaba/thing/${id}`, putObject)
             .then(response => console.log(response))
-            .catch(error => (error))
+            .catch(error => console.log(error))
         this.setState({isEditing: false})
     }
 
