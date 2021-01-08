@@ -14,6 +14,21 @@ peopleRouter.get("/", (req, res)=> {
 
 })
 
+//Params
+peopleRouter.get("/:personId", (req, res) => {
+    const personId = req.params.personId
+    const foundPerson = people.find( (person) => personId === person._id)
+    res.send(foundPerson)
+})
+
+//Queries
+peopleRouter.get("/search/age", (req, res) =>{
+    console.log(req)
+    const age = req.query.age
+    const foundPeople = people.filter(person => person.age === age)
+    res.send(foundPeople)
+})
+
 peopleRouter.post("/", (req, res)=> {
     req.body._id = uuid()
     people.push(req.body)
