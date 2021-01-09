@@ -29,18 +29,18 @@ fruitRouter.get("/",(req, res)=>{
     res.send(fruit)
 })
 
-fruitRouter.get("/:fruitId", (req, res=> {
+fruitRouter.get("/:fruitId", (req, res)=> {
     const fruitId = req.params.fruitId 
     const foundFruit = fruit.find(fruit => fruit._id === fruitId)
     res.send(foundFruit)
-}))
+})
 
 fruitRouter.get("/search/brand", (req, res)=> {
-    const fruitBrand = req.query.brand
-    const matchedBrand = fruit.filter(fruit => fruit.brand === fruitBrand )
+    const brand = req.query.brand
+    const matchedBrand = fruit.filter(fruit => fruit.brand === brand )
     res.send(matchedBrand)
 
 })
 
 
-exports.modules = fruitRouter
+module.exports = fruitRouter

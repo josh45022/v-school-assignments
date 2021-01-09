@@ -3,6 +3,8 @@ const express = require("express")
 const uuid = require('uuid').v4
 
 const peopleRouter = express.Router()
+peopleRouter.use(express.json())
+
 const people = [
     {name: "joe", age: "20", _id: uuid() },
     {name: "jane", age: "21", _id: uuid() }
@@ -37,4 +39,22 @@ peopleRouter.post("/", (req, res)=> {
      
 })
 
+peopleRouter.delete("/:personId", (req, res) => {
+    const personId = req.params.personId
+    const personIndex = people.findIndex(person => person._id === personId)
+    people.splice(personIndex, 1)
+    res.send("Successfully deleted movie!")
+
+
+})
+
+peopleRouter.put("/:postPersonId", (req, res)=> {
+    const postPersonId = req.params.postPersonId
+    const postPersonIndex = people.findIndex(person => person._id === postPersonId)
+    const updatedPeople = Object.assign(people[postPersonIndex], req.body)
+    console.log(req.body)
+    console.log(updatedPeople)
+    res.send(updatedPeople)
+
+})
 module.exports = peopleRouter

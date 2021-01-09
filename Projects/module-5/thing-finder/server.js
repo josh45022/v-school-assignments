@@ -2,7 +2,8 @@ const express = require("express")
 
 const app = express()
 
-app.use("/fruit", "./fruitRouter.js")
+app.use("/fruit", require("./routes/fruitRouter.js"))
+// app.use("/", require(express.json()))
 
 const trashData = [
     {

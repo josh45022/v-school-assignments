@@ -33,6 +33,21 @@ app.post("/bounties", (req, res)=>{
     res.send(bounties)
 })
 
+app.delete("/bounties/:bountyId", (req, res) => {
+    const bountyId = req.params.bountyId
+    const bountyIndex = bounties.findIndex(person => person._id === bountyId)
+    bounties.splice(bountyIndex, 1)
+    res.send(`Successfully deleted from the list`)
+})
+
+app.put("/bounties/:bountyId", (req, res)=> {
+    req.body._id = uuid()
+    const bountyId = req.params.bountyId
+    const bountyIndex = bounties.findIndex(person => person._id === bountyId)
+    const updatedBounties = Object.assign(bounties[bountyIndex], req.body)
+    res.send(updatedBounties)
+})
+
 app.listen(7000, () => {
     console.log("The server is running on Port 7000")
 })
