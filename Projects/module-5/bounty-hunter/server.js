@@ -1,9 +1,10 @@
 const express = require("express")
 const app = express()
 const uuid = require("uuid").v4
+const morgan = require("morgan")
 
 app.use(express.json())
-
+app.use(morgan("dev"))
 const bounties = [
     {
         firstName: "Jeff",

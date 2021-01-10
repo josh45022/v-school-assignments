@@ -12,30 +12,41 @@ const people = [
 
 
 peopleRouter.get("/", (req, res)=> {
-    res.send(people)
+    res.status(200).send(people)
 
 })
 
 //Params
-peopleRouter.get("/:personId", (req, res) => {
+peopleRouter.get("/:personId", (req, res, next) => {
     const personId = req.params.personId
     const foundPerson = people.find( (person) => personId === person._id)
-    res.send(foundPerson)
+    if(!foundPerson){
+        const error = new Error(`The item with id ${personId} was not found`)
+        res.status(500)
+        return  next(error)
+    }
+    res.status(200).send(foundPerson)
+
 })
 
 //Queries
-peopleRouter.get("/search/age", (req, res) =>{
+peopleRouter.get("/search/age", (req, res, next) =>{
     console.log(req)
     const age = req.query.age
     const foundPeople = people.filter(person => person.age === age)
-    res.send(foundPeople)
+    if(!age) {
+        const error = new Error("You must provide an age")
+        res.status(500)
+        return next(error)
+    }
+    res.status(200).send(foundPeople)
 })
 
 peopleRouter.post("/", (req, res)=> {
+    //in this case req.body is the new person
     req.body._id = uuid()
     people.push(req.body)
-    res.send(`Successfully added 
-    ${req.body.name} to the database.`)
+    res.status(201).send(req.body)
      
 })
 
@@ -54,7 +65,8 @@ peopleRouter.put("/:postPersonId", (req, res)=> {
     const updatedPeople = Object.assign(people[postPersonIndex], req.body)
     console.log(req.body)
     console.log(updatedPeople)
-    res.send(updatedPeople)
+    res.status(201).send(updatedPeople)
 
 })
+
 module.exports = peopleRouter

@@ -1,9 +1,9 @@
 const express = require('express')
 
 const app = express()
-const uuid = require('uuid').v4
-// ('uuid').v4 stands for version 4 of uuid
+const morgan = require("morgan")
 
+app.use(morgan("dev"))
 //Fake Data
 
 
@@ -25,6 +25,10 @@ app.get("/", (req, res, next)=> {
 })
 
 
+app.use((err, req, res, next)=> {
+    console.log(err)
+    return res.send({errMsg: err.message})
+})
 
 //Postman POST - body, raw, JSON
 
