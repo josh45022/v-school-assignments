@@ -2,14 +2,14 @@ const express = require("express")
 const app = express()
 const uuid = require("uuid").v4
 const morgan = require("morgan")
-
 app.use(express.json())
 app.use(morgan("dev"))
+
 const bounties = [
     {
         firstName: "Jeff",
         lastName: "Brown",
-        living: true, 
+        living: "true", 
         bountyAmount: 51,
         type: "Sith",
         _id:  uuid()
@@ -17,7 +17,7 @@ const bounties = [
     {
         firstName: "Claude",
         lastName: "Clyde",
-        living: true, 
+        living: "true", 
         bountyAmount: 41,
         type: "Sith",
         _id:  uuid()
@@ -31,7 +31,7 @@ app.get("/bounties", (req, res)=>{
 app.post("/bounties", (req, res)=>{
     req.body._id = uuid()
     bounties.push(req.body)
-    res.send(bounties)
+    res.send(req.body)
 })
 
 app.delete("/bounties/:bountyId", (req, res) => {

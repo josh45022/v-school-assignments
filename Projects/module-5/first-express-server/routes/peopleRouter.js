@@ -1,60 +1,76 @@
-const { Router } = require("express")
+// const { Router } = require("express")
 const express = require("express")
 const uuid = require('uuid').v4
-
 const peopleRouter = express.Router()
-peopleRouter.use(express.json())
-
-const people = [
-    {name: "joe", age: "20", _id: uuid() },
-    {name: "jane", age: "21", _id: uuid() }
-]
+const Person = require('../models/peopleData.js')
 
 
-peopleRouter.get("/", (req, res)=> {
-    res.status(200).send(people)
 
-})
 
-//Params
-peopleRouter.get("/:personId", (req, res, next) => {
-    const personId = req.params.personId
-    const foundPerson = people.find( (person) => personId === person._id)
-    if(!foundPerson){
-        const error = new Error(`The item with id ${personId} was not found`)
-        res.status(500)
-        return  next(error)
-    }
-    res.status(200).send(foundPerson)
+//Get All
+peopleRouter.get("/", (req, res, next)=> {
+
+    Person.find((err, people)=>{
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(people)
+    })
+
 
 })
+
+
+
+// //Params
+// peopleRouter.get("/:personId", (req, res, next) => {
+//     const personId = req.params.personId
+//     const foundPerson = people.find( (person) => personId === person._id)
+//     if(!foundPerson){
+//         const error = new Error(`The item with id ${personId} was not found`)
+//         res.status(500)
+//         return  next(error)
+//     }
+//     res.status(200).send(foundPerson)
+
+// })
 
 //Queries
-peopleRouter.get("/search/age", (req, res, next) =>{
-    console.log(req)
-    const age = req.query.age
-    const foundPeople = people.filter(person => person.age === age)
-    if(!age) {
-        const error = new Error("You must provide an age")
-        res.status(500)
-        return next(error)
-    }
-    res.status(200).send(foundPeople)
-})
+// peopleRouter.get("/search/age", (req, res, next) =>{
+//     console.log(req)
+//     const age = req.query.age
+//     const foundPeople = people.filter(person => person.age === age)
+//     if(!age) {
+//         const error = new Error("You must provide an age")
+//         res.status(500)
+//         return next(error)
+//     }
+//     res.status(200).send(foundPeople)
+// })
 
 peopleRouter.post("/", (req, res)=> {
-    //in this case req.body is the new person
-    req.body._id = uuid()
-    people.push(req.body)
-    res.status(201).send(req.body)
+    const newPerson = new Person(req.body)
+    newPerson.save((err, savedPerson)=>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(savedPerson)
+    }) 
      
 })
 
-peopleRouter.delete("/:personId", (req, res) => {
+peopleRouter.delete("/:personId", (req, res, next) => {
     const personId = req.params.personId
-    const personIndex = people.findIndex(person => person._id === personId)
-    people.splice(personIndex, 1)
-    res.send("Successfully deleted movie!")
+
+    Person.findOneAndDelete({personId}, (err, deletedItem)=>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        res.status(200).send("Successfully deleted person!")
+    })
 
 
 })
