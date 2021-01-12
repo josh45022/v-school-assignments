@@ -37,17 +37,20 @@ peopleRouter.get("/", (req, res, next)=> {
 // })
 
 //Queries
-// peopleRouter.get("/search/age", (req, res, next) =>{
-//     console.log(req)
-//     const age = req.query.age
-//     const foundPeople = people.filter(person => person.age === age)
-//     if(!age) {
-//         const error = new Error("You must provide an age")
-//         res.status(500)
-//         return next(error)
-//     }
-//     res.status(200).send(foundPeople)
-// })
+peopleRouter.get("/search/favColor", (req, res, next) =>{
+    Person.find(
+        {favColor: req.query.favColor},
+        (err, people) => {
+            if(err) {
+                res.status(500)
+                return next(err)
+            }
+            res.status(200).send(people)
+        }
+    )
+
+})
+
 
 peopleRouter.post("/", (req, res)=> {
     const newPerson = new Person(req.body)

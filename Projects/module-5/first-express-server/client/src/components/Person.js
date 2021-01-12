@@ -3,7 +3,7 @@ import AddPersonForm from "./addPersonForm"
 
 function Person(props) {
     console.log(props)
-    const {name, age, _id, deletePerson, editPerson} = props
+    const {name, age, favColor, _id, deletePerson, editPerson} = props
     const [editToggle, setEditToggle] = useState(false)
     return(
         <div>
@@ -19,6 +19,7 @@ function Person(props) {
             <AddPersonForm
             name={name} 
             age={age}
+            favColor={favColor}
             buttonText={"Submit Edit"}
             _id={_id}
             submit={editPerson}

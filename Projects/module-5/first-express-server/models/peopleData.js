@@ -9,6 +9,10 @@ const personSchema = new Schema({
     age: {
         type: String,
         required: true
+    },
+    favColor: {
+        type: String,
+        required: true
     } 
 })
 
