@@ -64,25 +64,32 @@ peopleRouter.post("/", (req, res)=> {
 peopleRouter.delete("/:personId", (req, res, next) => {
     const personId = req.params.personId
 
-    Person.findOneAndDelete({personId}, (err, deletedItem)=>{
+    Person.findOneAndDelete({_id: personId}, (err, deletedItem)=>{
         if(err){
             res.status(500)
             return next(err)
         }
+
         res.status(200).send("Successfully deleted person!")
     })
 
 
 })
 
-peopleRouter.put("/:postPersonId", (req, res)=> {
-    const postPersonId = req.params.postPersonId
-    const postPersonIndex = people.findIndex(person => person._id === postPersonId)
-    const updatedPeople = Object.assign(people[postPersonIndex], req.body)
-    console.log(req.body)
-    console.log(updatedPeople)
-    res.status(201).send(updatedPeople)
-
+peopleRouter.put("/:personId", (req, res, next)=> {
+    const personId = req.params.personId
+    Person.findOneAndUpdate(
+        {_id: personId},
+        req.body,
+        {new: true},
+        (err, updatedPerson)=>{
+            if(err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedPerson)
+        }
+    )
 })
 
 module.exports = peopleRouter
