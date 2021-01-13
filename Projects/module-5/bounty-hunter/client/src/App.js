@@ -9,19 +9,19 @@ function App() {
   const [bounties, setBounties] = useState([])
 
   const getBounties = () => {
-    axios.get("/bounties/")
+    axios.get("/bounties")
       .then(res => setBounties(res.data))
       .catch(err => console.log(err))
   }
 
   const addBounty = (newBounty) => {
-    axios.post("/bounties/", newBounty)
+    axios.post("/bounties", newBounty)
       .then(res => setBounties(prevBounties => [...prevBounties, res.data]))
       .catch(err => console.log(err))
   }
 
   const deleteBounty = (bountyId) => {
-    axios.delete(`/bounties/:${bountyId}`)
+    axios.delete(`/bounties/${bountyId}`)
       .then(res => setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId)))
       .catch(err => console.log(err))
   }

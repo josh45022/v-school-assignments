@@ -1,4 +1,3 @@
-// import e, { response } from "express"
 import React, {useState} from "react"
 
 
@@ -6,11 +5,11 @@ function Form(props) {
     // const {submit, buttonText, firstName, lastName, living, bountyAmount, type } = props
     const initInputs = 
     {
-        firstName: ""||props.firstName, 
-        lastName: ""||props.lastName, 
-        living: props.living, 
-        bountyAmount: ""||props.bountyAmount,
-        type: ""||props.type
+        firstName: props.firstName || "", 
+        lastName: props.lastName || "", 
+        living: props.living || "", 
+        bountyAmount: props.bountyAmount || "",
+        type: props.type || ""
     }
 
     const [inputs, setInputs] = useState(initInputs)
@@ -33,6 +32,7 @@ function Form(props) {
             <input
                 type="text"
                 name="firstName"
+                placeholder="First Name"
                 value={inputs.firstName}
                 onChange={handleChange}
 
@@ -40,9 +40,11 @@ function Form(props) {
             <input
                 type="text"
                 name="lastName"
+                placeholder="Last Name"
                 value={inputs.lastName}
                 onChange={handleChange}
             />
+            <h4>Is Living?</h4>
             <select name="living" value={inputs.living} onChange={handleChange}>
                 <option value=""></option>
                 <option value="true">True</option>
@@ -51,13 +53,15 @@ function Form(props) {
             <input 
                 type="number"
                 name="bountyAmount"
+                placeholder="Bounty Amount"
                 value={inputs.bountyAmount}
                 onChange={handleChange}
             />
+            <h4>Sith or Jedi?</h4>
             <select name="type" value={inputs.type} onChange={handleChange}>
                 <option value=""></option>
-                <option value="Sith">True</option>
-                <option value="Jedi">False</option>
+                <option value="Sith">Sith</option>
+                <option value="Jedi">Jedi</option>
             </select>
             <button >{props.buttonText}</button>
         </form>
