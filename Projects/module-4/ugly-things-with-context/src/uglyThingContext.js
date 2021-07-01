@@ -1,83 +1,68 @@
-import React from "react"
-const axios = require("axios")
-const {Provider, Consumer} = React.createContext()
+import React, {useState, useEffect} from "react"
+import axios from "axios"
+const UglyThingContext = React.createContext()
 
-class UglyThingContextProvider extends React.Component {
-    state = {
+function UglyThingContextProvider (props) {
+
+    const initState = {
         listOfItems: [],
-        isEditing: false
-
+        isEditing: false,
     }
+    const [state, setState] = useState(initState)
 
-    createUglyThing = (event) => {
-        event.preventDefault()
-        axios.post("https://api.vschool.io/joshuabenbaba/thing", this.state)
-            .then(response => {
-
-                this.setState(prevState => {
-                    return {
-                        listOfItems: [...prevState.listOfItems,response.data]
-                    }
-                })
-            })
-            .catch(error => (error))
-        this.setState({
-            title: "",
-            description: "",
-            imgUrl:""
-        })
-    }
-
-    getList = () => {
+    const getList = () => {
+        console.log("hiii")
         axios.get("https://api.vschool.io/joshuabenbaba/thing")
-            .then(response => (this.setState({listOfItems: response.data})))
-            .catch(error => (error))
-        this.setState({isEditing: false})
-    }
-    componentDidMount() {
-        this.getList()
-        this.setState({isLoading: false})
+            .then(response => setState({listOfItems: response.data.map(item => ({...item, isEditing: false}))}))
+            .catch(error => console.log(error))
     }
 
-    handleChange = (event) => {
+    useEffect(() => {
+        return getList()
+    }
+
+    , [])
+
+    const handleChange = (event) => {
         const {name, value} = event.target
-        this.setState({[name]: value})
+        setState({[name]: value})
     }
 
-    handleDelete = (id) => {
+    const handleDelete = (id) => {
 
         axios.delete(`https://api.vschool.io/joshuabenbaba/thing/${id}`)
-            .then(response => {
-                this.setState(
-                    prevState => {
-                        return{
-                            listOfItems: prevState.listOfItems.filter(thing => id !== thing.id)
-                        }
-                    }
-                )
-            })
-            .catch(error => (error))
-        this.getList()
-    }
-
-    takeToEdit = () => {
-        this.setState({isEditing: true})
-    }
-
-    handleEdit = (id, putObject) => {
-        axios.put(`https://api.vschool.io/joshuabenbaba/thing/${id}`, putObject)
-            .then(response => console.log(response))
+            .then(response => getList())
             .catch(error => console.log(error))
-        this.setState({isEditing: false})
+        return 
     }
 
-    render(){
+    const takeToEdit = (id) => {
+        return setState({listOfItems: state?state.listOfItems.map(item => item._id === id? {...item, isEditing: !item.isEditing}:item):null})
+           
+    }
+
+    const handleEdit = (id, putObject) => {
+        axios.put(`https://api.vschool.io/joshuabenbaba/thing/${id}`, putObject)
+            .then(response => getList())
+            .catch(error => console.log(error))
+        return 
+    }
+
+
         return(
-            <Provider value={{listOfItems: this.state.listOfItems, handleDelete: this.handleDelete, handleChange:this.handleChange, isEditing: this.state.isEditing, getList: this.getList, handleEdit: this.handleEdit, takeToEdit: this.takeToEdit}}>
-                {this.props.children}
-            </Provider>
+            <UglyThingContext.Provider value={{
+                listOfItems: state?state.listOfItems:null, 
+                handleDelete: handleDelete, 
+                handleChange:handleChange, 
+                isEditing: state?state.isEditing:null, 
+                getList: getList, 
+                handleEdit: handleEdit, 
+                takeToEdit: takeToEdit
+                }}>
+                {props.children}
+            </UglyThingContext.Provider>
         )
     }
-}
 
-export {UglyThingContextProvider, Consumer as UglyThingContextConsumer}
+
+export {UglyThingContextProvider, UglyThingContext}

@@ -31,6 +31,28 @@
             </div>
             <button>Submit</button>
         </form>
+        <form name="airline-form">
+            <div> First Name: <input type="text" name="firstName" /> </div>
+            <div> Last Name: <input type="text" name="lastName" /> </div>
+            <div>Age: <input type="number" name="ageth" /> </div>
+            <div>Gender: 
+            Male: <input type="radio" name="gender" value="Male"/>
+            Female: <input type="radio" name="gender" value="Female"/>
+            <div>
+            <div> Location:
+                <select name= "location">
+                    <option value= "Paris">Paris</option>
+                    <option value= "London">London</option>
+                    <option value= "New York">New York</option>
+                </select>
+            </div>
+            <div> Dietary Restrictions:
+                Vegetarian: <input type="checkbox" name="diet" value="vegetarian"/>
+                Kosher: <input type="checkbox" name="diet" value="kosher"/>
+                Lactose-Free: <input type="checkbox" name="diet" value="lactose"/>
+            </div>
+            <button id="submit">Submit</button>
+        </form>
         <script src="index.js"></script>
     </body>
 </html>

@@ -8,13 +8,14 @@ function Employee (name, job, title, salary) {
     this.salary = salary;
     this.status = "Full-Time"
     this.printEmployeeForm = function() {
-        console.log("Name: " + name + " Job: "+ job + " Title: " + title + " Salary: " + salary + " Status: " + status)
+        return console.log("Name: " + this.name + " Job: "+ this.job + " Title: " + this.title + " Salary: " + this.salary + " Status: " + this.status)
     }
 }
 
 var coolGuy = new Employee("Patick", "Krusty Krab", "Krabby Patty Flipper", "$2 billion per hour")
 
 var coolGuy2 = new Employee("Patty", "Burger King", "Bossman", "$ 7 trillion per hour")
+coolGuy2.printEmployeeForm()
 
 var coolGuy3 = new Employee("Gunther", "Microsoft Inc", "CEO", "$0.004 per hour")
  

@@ -2,16 +2,17 @@
 var arr = [1,2,3]
 
 var total = arr.reduce(function (final, num) {
-    final += num
-    return final
+    // final += num
+    return final + num
 })
 
 console.log(total)
 
 //Exercise 2
 var stringConcat = arr.reduce(function (final, num) {
-    var yeah = final.toString(num)
-    return yeah.concat(num)
+    var yeah = final.toString()
+    // return yeah.concat(num)
+    return yeah.concat(num.toString())
 
 })
 

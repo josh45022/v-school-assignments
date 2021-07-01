@@ -1,27 +1,26 @@
 
 //Exercise 1
-let arr = [1, 2, 3, 4, 5, 6, 7, 8]
 
-doubleNumbers = (num) => num * 2;
+function doubleNumbers(arr) {
+    return arr.map(num => num * 2)
+}
 
 
-console.log(arr.map(doubleNumbers))
+console.log(doubleNumbers([1, 2, 3, 4, 5, 6, 7, 8]))
 
 //Exercise 3: for some reason it worked when I used 2 returns and not one. I thought that return ended the code. ????
 //I think it is because the function can end at
     
-let arr2 = ["john", "jacob", "jingleHeimer", "schmidt"]
+let arr2 = ["john", "JACOB", "jingleHeimer", "schmidt"]
 
  var capitalizeNames = arr2.map(function (name) {
-    if (name === "jacob") {
-         return name.toUpperCase()
-    }
-    if (name !== "jacob") {
-        return name
-    }
+   return name.slice(0, 1).toUpperCase() + name.slice(1).toLowerCase()
 })
 
 console.log(capitalizeNames)
+
+
+
 
 
 //Exercise 2
@@ -80,8 +79,6 @@ var makeStrings = peopleArray.map(function (people) {
 console.log(makeStrings)
 
 //Exercise 6
-var h1 = document.createElement('h1')
-var h2 = document.createElement('h2')
 
 
 var readyToPutInTheDOM = peopleArray.map(function (people) {

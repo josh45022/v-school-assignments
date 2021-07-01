@@ -33,12 +33,13 @@ app.get("/todos/:todoId", (req, res)=> {
 app.post("/todos", (req, res)=> {
     req.body._id = uuid()
     todos.push(req.body)
+    console.log(todos)
     res.send("Sucessfully posted")
-})
+}) 
 app.put("/todos/:todoId", (req, res)=> {
     const todoId = req.params.todoId
     const todoIndex = todos.findIndex(todo => todo._id === todoId)
-    const updatedTodo = Object.assign(todos[todoIndex], req.body) 
+    const updatedTodo = Object.assign(todos[todoIndex], req.body) //decided to be extra here
     res.send(updatedTodo)
 })
 app.delete("/todos/:todoId", (req, res)=> {

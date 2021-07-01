@@ -1,32 +1,39 @@
-import React from "react"
-const axios = require("axios")
+import React, { useState, useContext } from "react"
+import { UglyThingContext } from "../uglyThingContext"
+import axios from "axios"
 
-class Form extends React.Component {
+function Form () {
+    const context = useContext(UglyThingContext)
 
-    state = {
+
+    const initState = {
         title: "",
         description: "",
         imgUrl:""
 
     }
 
-    handleChange = (event) => {
+    const [state, setState] = useState(initState)
+    
+    const handleChange = (event) => {
         const {name, value} = event.target
-        this.setState({[name]: value})
+        return setState(prevState => ({...prevState, [name]: value}))
+        
     }
 
     
 
-    createUglyThing = (event) => {
+    const createUglyThing = (event) => {
         event.preventDefault()
-        axios.post("https://api.vschool.io/joshuabenbaba/thing", this.state)
+        axios.post("https://api.vschool.io/joshuabenbaba/thing", state)
             .then(response => console.log(response))
             .catch(error => (error))
-        this.setState({
+        setState({
             title: "",
             description: "",
             imgUrl:""
         })
+        return context.getList()
     }
 
 
@@ -35,35 +42,44 @@ class Form extends React.Component {
 
 
 
-    render(){
+
+
+
+
         return(
-            <form onSubmit={this.createUglyThing}>
-                <input
-                type="text"
-                name="imgUrl"
-                placeholder="Image Url"
-                value={this.state.imgUrl}
-                onChange={this.handleChange}
-                
-                />
-                <input
-                type="text"
-                name="description"
-                placeholder="Image Description"
-                value={this.state.description}
-                onChange={this.handleChange}
-                />
-                <input
-                type="text"
-                name="title"
-                placeholder="Image Title"
-                value={this.state.title}
-                onChange={this.handleChange}
-                />
-                <button type="submit">Submit</button>            
-            </form>
+                <form onSubmit={(e) => {
+                    createUglyThing(e)
+                    return context.getList()
+                    }
+                    }>
+
+
+                    <input
+                    type="text"
+                    name="title"
+                    placeholder="Image Title"
+                    value={state?state.title:null}
+                    onChange={handleChange}
+                    />
+                                        <input
+                    type="text"
+                    name="description"
+                    placeholder="Image Description"
+                    value={state?state.description:null}
+                    onChange={handleChange}
+                    />
+                                        <input
+                    type="text"
+                    name="imgUrl"
+                    placeholder="Image Url"
+                    value={state?state.imgUrl:null}
+                    onChange={handleChange}
+                    
+                    />
+                    <button type="submit">Submit</button>            
+                </form>
+
         )
-    }
 }
 
 

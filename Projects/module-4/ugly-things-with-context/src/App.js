@@ -1,41 +1,25 @@
-import React from "react"
+import React, {useState, useContext} from "react"
 import './App.css';
 import UglyThing from "./components/UglyThing.js"
 import Form from "./components/Form"
-import {UglyThingContextConsumer} from './uglyThingContext.js';
-const axios = require("axios")
+import {UglyThingContext} from './uglyThingContext.js';
+
 
 function App() {
+  const {listOfItems, handleDelete, handleChange, isEditing, getList, handleEdit, takeToEdit} = useContext(UglyThingContext)
+
+  const mappedUglyThings = listOfItems?listOfItems.map(
+    function(item){
+      return(<UglyThing item={item} handleDelete={handleDelete} handleChange={handleChange} getList={getList} handleEdit={handleEdit} takeToEdit={takeToEdit} key={item?item._id:null}/>)
+        }
+      ):null
 
     return (
       
 
                 <div className="App">
                       <Form/>
-
-                      <UglyThingContextConsumer>
-                        
-                          {({listOfItems, handleDelete, handleChange, isEditing, getList, handleEdit, takeToEdit}) => { 
-
-                            console.log(listOfItems)
-
-                            const mappedUglyThings = listOfItems.map(
-                              function(item){
-                                return(<UglyThing item={item} handleDelete={handleDelete} handleChange={handleChange} isEditing={isEditing} getList={getList} handleEdit={handleEdit} takeToEdit={takeToEdit} key={item._id}/>)
-                                  }
-                                )
-
-                            return(
-                              
-                                mappedUglyThings
-                              
-                              
-                            )
-                          }}
-                        </UglyThingContextConsumer>
-                
-
-                
+                      {mappedUglyThings}
                 
                   
 

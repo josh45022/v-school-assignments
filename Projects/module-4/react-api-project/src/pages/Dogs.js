@@ -24,7 +24,7 @@ function Dogs() {
                 <div style={{color: "red", margin: "20px"}}>Reload page for original lyrics. Type a number between 0 and 110 in the text field below to change "dog" to a picture of a German Shepherd dog! Remember each dog picture is represented by a different number.</div>
                 <h1>Walking The Dog</h1>
                 <h2>By Rufus Thomas</h2>
-                    <h4>Baby's back, dressed in black,</h4>
+                    <h4>Mary Mac, dressed in black,</h4>
                     <h4>Silver buttons all down her back</h4>
                     <h4>High, low, tipsy toe,</h4>
                     <h4>She broke a needle and she can't sew</h4>
@@ -72,7 +72,7 @@ function Dogs() {
                 <h1>Walking The Dog</h1>
                 <h2>By Rufus Thomas</h2>
                     
-                    <h4>Baby's back, dressed in black,</h4>
+                    <h4>Mary Mac, dressed in black,</h4>
                     <h4>Silver buttons all down her back</h4>
                     <h4>High, low, tipsy toe,</h4>
                     <h4>She broke a needle and she can't sew</h4>

@@ -2,6 +2,8 @@ const express = require('express')
 
 const fruitRouter = express.Router()
 
+
+
 const uuid = require('uuid').v4
 
 const fruit = [
@@ -29,18 +31,26 @@ fruitRouter.get("/",(req, res)=>{
     res.send(fruit)
 })
 
+
+
+fruitRouter.get("/brand", (req, res)=> {
+    console.log(req.query)
+    const brand = req.query.brand
+    const matchedBrand = fruit.filter(item => item.brand === brand )
+    console.log(matchedBrand)
+    res.send(matchedBrand)
+
+})
 fruitRouter.get("/:fruitId", (req, res)=> {
     const fruitId = req.params.fruitId 
     const foundFruit = fruit.find(fruit => fruit._id === fruitId)
     res.send(foundFruit)
 })
 
-fruitRouter.get("/search/brand", (req, res)=> {
-    const brand = req.query.brand
-    const matchedBrand = fruit.filter(fruit => fruit.brand === brand )
-    res.send(matchedBrand)
-
+fruitRouter.post("/", (req, res) => {
+     console.log(req.body)
+     fruit.push(req.body)
+     res.send("Sucessfully posted fruit.")
 })
-
 
 module.exports = fruitRouter

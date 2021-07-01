@@ -49,6 +49,8 @@ function bigSorter (arr) {
      }
 
     })
+    console.log(byName)
+
     var embed = byName.map(function (user) {
         return '<li>'  + user.firstName + user.lastName + 'is' + user.age + '</li>'
     })

@@ -15,7 +15,7 @@ function Home() {
             <p>View and customize the lyrics of everyone's favorite two songs - "Ev'rybody Wants to Be a Cat" from Disney's <i> Aristocats</i> and
             "Walking the Dog" By Rufus Thomas!
             </p>
-            <p>Our Dogs Feature makes it possible for you to replace the boring word "dog" with a picture from a German Shepherd Dog with over 100 choices to choose from! </p>
+            <p>Our Dogs Feature makes it possible for you to replace the boring word "dog" with a picture of a German Shepherd Dog with over 100 choices to choose from! </p>
             <p>Our new Cats Feature makes it possible for you to replace the word "cat" with 68 different cat pictures that you can generate yourself!</p>
             <p>Click on the links to try them out!</p>
             <img className="homeimage" alt="" src="https://img.discogs.com/JfkPG2zCbpKhNrVP2Xy63cUoY-w=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-3202240-1320273915.jpeg.jpg"/>

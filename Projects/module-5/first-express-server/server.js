@@ -21,12 +21,17 @@ app.use("/people", require("./routes/peopleRouter.js"))
 
 app.use("/animals", require("./routes/animalsRouter.js")) 
 
+app.use("/books", require("./routes/bookRouter.js"))
+
+app.use("/authors", require("./routes/authorsRouter.js"))
+
+
+//Middleware Function Stuff
 app.use("/", (req, res, next)=> {
     console.log("THE ITEMS MIDDLEWARE WAS EXECUTED!")
     next()
 })
 
-//Middleware Function Stuff
 app.use("/", (res, req, next) => {
     req.body = {name: "Rick"}
     next()

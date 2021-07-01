@@ -98,6 +98,7 @@ class App extends React.Component {
   }
 
 
+
   render(){
     const mappedList = this.state.lists.map(
       function(item){
